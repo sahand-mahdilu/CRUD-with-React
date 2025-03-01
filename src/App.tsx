@@ -1,21 +1,13 @@
+import { RouterProvider } from 'react-router';
+import './App.css';
+import { router } from './Routes/Routes';
 
-import { RouterProvider } from 'react-router'
-import './App.css'
-import { router } from './Routes/Routes'
-
-
-
-function App() {
-
-  
-
+const App: React.FC = () => {
   return (
     <>
-
-    <RouterProvider router={router}/>
-
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
