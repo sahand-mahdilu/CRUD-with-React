@@ -1,15 +1,18 @@
 
+import { RouterProvider } from 'react-router'
 import './App.css'
-import Navbar from './Components/Navbar'
-import Home from './Pages/Home'
+
+import { router } from './Routes/Routes'
 
 function App() {
 
+  
 
   return (
     <>
-<Navbar/>
-<Home/>
+
+    <RouterProvider router={router}/>
+
     </>
   )
 }
