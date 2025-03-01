@@ -6,7 +6,7 @@ import Cart from "../Pages/Cart";
 import AddProduct from "../Pages/AddProduct";
 
 
-const router= createBrowserRouter([
+const router = createBrowserRouter([
 
     {path :"/" ,element: <Layout/> ,children:[
 
