@@ -1,6 +1,11 @@
 import ProductCart from "../Components/ProductCart";
 
 export default function Products() {
+
+
+  
+
+
   return (
     <div className="text-white">
       <span>products</span>
