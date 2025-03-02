@@ -51,7 +51,11 @@ export default function SingleProduct() {
                   <path d="M3 6h18v2H3V6zm2 2h14l-1.5 14H6.5L5 8zm4 2v10h2V10H9zm4 0v10h2V10h-2zm-3-5V3h4v2h5v2H4V5h5z" />
                 </svg>
         </button>
+
       </div>
+
+      <button className="bg-green-700 p-2 px-5 rounded-lg mb-8 hover:bg-green-500 text-white">Go back</button>
+
     </div>
   );
 }
