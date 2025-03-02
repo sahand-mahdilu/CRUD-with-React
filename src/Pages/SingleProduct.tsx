@@ -1,6 +1,6 @@
 
 export default function SingleProduct() {
   return (
-    <div>SingleProduct</div>
+    <div className="text-white">SingleProduct</div>
   )
 }
