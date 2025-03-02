@@ -3,11 +3,17 @@ import { ProductsModel } from "../Models/ProductModels";
 export default function ProductCart(props :ProductsModel) {
 
 const {name, description , qyt, price ,available}=props
+
+const clickHandler=()=>{
+
+  console.log("hellp");
+}
   
   return (
-    <div className="flex flex-col items-center gap-5  border-2 hover:bg-blue-950 transition-all  p-3 rounded-2xl">
+    <div className={available ? "flex flex-col items-center gap-5  border-2 hover:bg-blue-950 transition-all  p-3 rounded-2xl": "flex flex-col items-center gap-5  border-2 hover:bg-blue-950 transition-all  p-3 rounded-2xl bg-slate-500"}>
 
         <h1 className="text-3xl font-bold">{name}</h1>
+        {available? "" :<p className="text-red-600 font-bold text-xl">not available</p>}
         <p className="text-center">{description}</p>
         <div>
         <span className="text-2xl font-bold text-orange-500">Price: </span>
@@ -16,8 +22,8 @@ const {name, description , qyt, price ,available}=props
 
         </div>
         <span>count : {qyt}</span>
-        <button className="p-1 px-2 rounded-lg bg-green-400">Add to cart</button>
-        <span>    <svg
+        <button onClick={clickHandler} disabled={!available} className={available?"p-1 px-2 rounded-lg bg-green-400":"p-1 px-2 rounded-lg bg-red-400" }>Add to cart</button>
+        <span className="bg-blue-500 p-2 rounded-md hover:bg-blue-300 cursor-pointer">    <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
