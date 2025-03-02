@@ -57,7 +57,7 @@ export default function SearchInput() {
 
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 justify-center mt-7">
 
 
       <input
