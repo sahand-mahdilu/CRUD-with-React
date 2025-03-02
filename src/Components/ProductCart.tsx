@@ -1,17 +1,21 @@
+import { ProductsModel } from "../Models/ProductModels";
 
-export default function ProductCart() {
+export default function ProductCart(props :ProductsModel) {
+
+const {name, description , qyt, price ,available}=props
+  
   return (
-    <div className="flex flex-col items-center gap-5 bg-slate-600 p-3 rounded-2xl">
+    <div className="flex flex-col items-center gap-5  border-2 hover:bg-blue-950 transition-all  p-3 rounded-2xl">
 
-        <h1 className="text-3xl font-bold">Shampoo</h1>
-        <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, adipisci?</p>
+        <h1 className="text-3xl font-bold">{name}</h1>
+        <p className="text-center">{description}</p>
         <div>
         <span className="text-2xl font-bold text-orange-500">Price: </span>
-        <span className="text-2xl">800$ </span>
+        <span className="text-2xl">{price}$ </span>
 
 
         </div>
-        <span>count :20</span>
+        <span>count : {qyt}</span>
         <button className="p-1 px-2 rounded-lg bg-green-400">Add to cart</button>
         <span>    <svg
             xmlns="http://www.w3.org/2000/svg"

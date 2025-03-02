@@ -1,26 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
 import ProductCart from "../Components/ProductCart";
-import { getProducts } from "../API/APIs";
 import { ProductsModel } from "../Models/ProductModels";
+import useGetProducts from "../Hooks/useGetProducts";
 
 
 
 export default function Products() {
-  const { data } = useQuery<ProductsModel[], Error>({
-    queryKey: ["products"],
-    queryFn: getProducts
-  });
+  const { data } = useGetProducts()
 
   console.log(data);
 
   return (
     <div className="text-white">
-      <span>products</span>
+      <p className="text-2xl font-bold text-center mt-6">Products</p>
 
-      <div className="grid grid-cols-3 gap-5 p-5 bg-black">
-        {data?.map((p: ProductsModel) => {
+      <div className="grid grid-cols-3 gap-5 p-16 bg-black">
+        {data?.map((product: ProductsModel) => {
           return (
-            <ProductCart key={p.id} {...p} />
+            <ProductCart key={product.id} {...product} />
           )
         })}
       </div>
