@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { baseUrl } from "../Constant/URLs";
 
 const httpRequest =axios.create({
@@ -9,6 +9,23 @@ const httpRequest =axios.create({
     },
    
   }) 
-
+  axios.interceptors.request.use(
+    function (config: InternalAxiosRequestConfig<any>): InternalAxiosRequestConfig<any> {
+      return config;
+    },
+    function (error: any): Promise<any> {
+      return Promise.reject(error);
+    }
+  );
+  
+ 
+  axios.interceptors.response.use(
+    function (response: AxiosResponse): AxiosResponse {
+      return response;
+    },
+    function (error: any): Promise<any> {
+      return Promise.reject(error);
+    }
+  );
 
 export { httpRequest };
