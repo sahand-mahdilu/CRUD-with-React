@@ -5,9 +5,9 @@ import { AxiosResponse } from "axios";
 
 
 
-async function getProducts(): Promise<ProductsModel[]> {
+async function getProducts(search:string): Promise<ProductsModel[]> {
     try {
-        let res: AxiosResponse<ProductsModel[]> = await httpRequest.get(endPoints.product);
+        let res: AxiosResponse<ProductsModel[]> = await httpRequest.get(`${endPoints.product}${search}`);
         let data: ProductsModel[] = res.data;
         return data;
     } catch (err) {

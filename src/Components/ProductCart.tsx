@@ -4,6 +4,10 @@ export default function ProductCart(props :ProductsModel) {
 
 const {name, description , qyt, price ,available}=props
 
+
+
+
+
 const clickHandler=()=>{
 
   console.log("hellp");
