@@ -7,7 +7,7 @@ export default function useGetProducts(search:string) {
   return (
     useQuery<ProductsModel[], Error>({
         queryKey: ["products",search],
-        queryFn: ()=>getProducts(search)
+        queryFn: ()=>getProducts(search),
       })
   )
 }

@@ -15,6 +15,23 @@ async function getProducts(search:string): Promise<ProductsModel[]> {
         throw new Error("Failed to fetch products");
     }
 }
+async function getProduct(id:string): Promise<ProductsModel>{
+
+    try{
+       
+     let res: AxiosResponse<ProductsModel> = await httpRequest.get(
+            `${endPoints.product}/${id}`
+          );
+          let data:ProductsModel =  res.data
+          console.log(data);
+          return data;
+         
+
+    }catch(err){
+        console.log(err);
+        throw new Error("Failed to fetch products");
+    }
+}
 
 
-export{getProducts}
+export{getProducts,getProduct}
