@@ -1,21 +1,20 @@
 import { endPoints } from "../Constant/URLs";
+import { ProductsModel } from "../Models/ProductModels";
 import { httpRequest } from "../Services/HttpService";
 import { AxiosResponse } from "axios";
 
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    // Add other fields as needed
-}
 
-async function getProducts(): Promise<Product[]> {
+
+async function getProducts(): Promise<ProductsModel[]> {
     try {
-        let res: AxiosResponse<Product[]> = await httpRequest.get(endPoints.product);
-        let data: Product[] = res.data;
+        let res: AxiosResponse<ProductsModel[]> = await httpRequest.get(endPoints.product);
+        let data: ProductsModel[] = res.data;
         return data;
     } catch (err) {
         console.log(err);
         throw new Error("Failed to fetch products");
     }
 }
+
+
+export{getProducts}
