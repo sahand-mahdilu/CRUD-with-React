@@ -10,14 +10,12 @@ export default function Products() {
 
   const location = useLocation();
 
-  console.log(location);
 
 
   const { data } = useGetProducts(
     location.search 
   )
 
-  console.log(data);
 
   return (
     <div className="text-white">
