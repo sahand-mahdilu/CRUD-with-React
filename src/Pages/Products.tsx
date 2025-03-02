@@ -11,6 +11,9 @@ export default function Products() {
   const location = useLocation();
 
 
+ 
+
+
 
   const { data } = useGetProducts(
     location.search 
@@ -19,7 +22,7 @@ export default function Products() {
 
   return (
     <div className="text-white">
-      <p className="text-2xl font-bold text-center mt-6">Products</p>
+      <p className=" animate-pulse text-3xl font-bold text-center mt-6">Products</p>
 
       <SearchInput/>
 

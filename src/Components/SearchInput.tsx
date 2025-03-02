@@ -11,8 +11,7 @@ export default function SearchInput() {
 
     const [available, setAvailable] = useState<boolean>(searchParam.get("available") === "true" ? true : false);
 
-    console.log(searchParam);
-    console.log(available);
+
 
 
     const updateSearchParams= useCallback((value:string)=>{
@@ -63,7 +62,7 @@ export default function SearchInput() {
       <input
         type="text"
         placeholder="Search..."
-        className="w-1/2 border rounded-2xl p-2 mb-4 hover:bg-gray-200/50 cursor-pointer transition-all duration-300 ease-in-out"
+        className="bg-blue-950 w-1/2 border rounded-2xl p-2 mb-4 hover:bg-gray-200/50 cursor-pointer transition-all duration-300 ease-in-out"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
