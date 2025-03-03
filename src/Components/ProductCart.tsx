@@ -6,7 +6,6 @@ export default function ProductCart(props :ProductCartProps) {
 
 const {name, description , qyt, price ,available,id,children}=props
 
-console.log(children);
 
 
   
