@@ -1,23 +1,36 @@
 import { useEffect, useState } from "react";
 import Form from "../Components/Form";
+import useGetProduct from "../Hooks/useGetProduct";
+import { useParams } from "react-router";
 
 export default function EditProduct() {
     const [editMode,setEditmode]=useState(false)
 
+    const{id}=useParams()
+    console.log(id);
+
+    const {data}=useGetProduct( String(id))
+
+    console.log(data);
+
     useEffect(()=>{
         setEditmode(true)
     })
+
+
 
     
 
 
   return (
     <>
-    <h1 className="text-2xl text-white font-bold mt-5 animate-pulse text-center ">Edit Product</h1>
+    <div className="bg-black">
+    <h1 className="text-2xl text-white font-bold mt-3 animate-pulse text-center ">Edit Product</h1>
 
-      <div className="flex justify-center items-center mt-8">
-            <Form edit={editMode} />
+      <div className="flex justify-center items-center mt-3">
+            <Form edit={editMode} {...data} />
     
+          </div>
           </div>
           </>
 

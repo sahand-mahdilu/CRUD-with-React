@@ -4,17 +4,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ValidationSchemaYup } from "../Schema/ValidationSchema";
 import useAddProducts from "../Hooks/useAddProducts";
 import { endPoints } from "../Constant/URLs";
+import { useEffect } from "react";
 
-export default function Form({ edit }:FormProps) {
+export default function Form({ edit ,name,description,available,price,qyt
+
+
+}:FormProps) {
   const { mutate: addProduct } = useAddProducts(endPoints.product);
+
+  console.log(name);
 
   const {
     register,
     reset,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
+
+  
     defaultValues: {
+
+        
       name: "",
       description: "",
       qyt: 0,
@@ -23,6 +34,16 @@ export default function Form({ edit }:FormProps) {
     },
     resolver: yupResolver(ValidationSchemaYup),
   });
+
+  useEffect(() => {
+    if (edit) {
+        setValue("name", name || "");
+        setValue("description", description || "");
+        setValue("qyt", qyt || 0);
+        setValue("price", price || 0);
+        setValue("available", available || false);
+    }
+  }, [edit, name, description, qyt, price, available, setValue]);
 
   const formSubmiting = (data: ProductsModel) => {
     addProduct(data, {
@@ -108,7 +129,7 @@ export default function Form({ edit }:FormProps) {
         <button className="bg-yellow-600 mt-3 p-2 rounded-md hover:bg-yellow-400 text-white">
         Edit Porduct
       </button>
-      <button className="bg-sky-500 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
+      <button className="bg-teal-500 mt-3 p-2 rounded-md hover:bg-teal-400 text-white">
         Go Back
       </button>
       </div>

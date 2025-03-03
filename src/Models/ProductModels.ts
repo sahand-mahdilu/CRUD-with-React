@@ -1,9 +1,9 @@
 export interface ProductsModel {
     id?: number;
-    name: string;
-    description: string;
-    qyt: number;
-    price: number;
+    name?: string;
+    description?: string;
+    qyt?: number;
+    price?: number;
     available?: boolean;
 }
 
@@ -21,7 +21,7 @@ export interface ProductCartProps extends ProductsModel {
         endpoint: string;
       }
 
-      export interface FormProps {
+      export interface FormProps extends ProductsModel {
         edit?: boolean;
       }
 
