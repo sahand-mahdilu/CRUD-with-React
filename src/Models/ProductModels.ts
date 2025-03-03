@@ -4,7 +4,7 @@ export interface ProductsModel {
     description: string;
     qyt: number;
     price: number;
-    available: boolean;
+    available?: boolean;
 }
 
 

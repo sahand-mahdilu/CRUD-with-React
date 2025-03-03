@@ -43,10 +43,10 @@ async function getProduct(id:string): Promise<ProductsModel>{
     }
 }
 
-async function Addproducts(product:ProductsModel){
+async function Addproducts(product:ProductsModel,endpoint:string){
 
     try{
-        let res : AxiosResponse<ProductsModel> = await httpRequest.post(`${endPoints.cart}`,product)
+        let res : AxiosResponse<ProductsModel> = await httpRequest.post(`${endpoint}`,product)
         let data : ProductsModel = res.data
         return data
     }catch(err){
