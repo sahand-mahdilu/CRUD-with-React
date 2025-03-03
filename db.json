@@ -171,19 +171,11 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "name": "Conditioner",
-      "description": "Smooths and detangles hair",
+      "id": 11,
+      "name": "Lip Balm",
+      "description": "Moisturizes and protects lips",
       "qyt": 30,
-      "price": 4000,
-      "available": true
-    },
-    {
-      "id": 1,
-      "name": "Shampoo",
-      "description": "Moisturizing and nourishing for all hair types",
-      "qyt": 25,
-      "price": 35000,
+      "price": 12000,
       "available": true
     }
   ]

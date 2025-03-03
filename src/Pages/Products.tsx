@@ -3,6 +3,7 @@ import { ProductsModel } from "../Models/ProductModels";
 import useGetProducts from "../Hooks/useGetProducts";
 import SearchInput from "../Components/SearchInput";
 import { useLocation } from "react-router";
+import useGetCartProducts from "../Hooks/useGetCartProducts";
 
 
 
@@ -18,6 +19,10 @@ export default function Products() {
   const { data } = useGetProducts(
     location.search 
   )
+
+  const {data: cartData}= useGetCartProducts()
+
+  console.log(cartData);
 
 
   return (
