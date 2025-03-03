@@ -46,11 +46,21 @@ export default function Form({ edit ,name,description,available,price,qyt
   }, [edit, name, description, qyt, price, available, setValue]);
 
   const formSubmiting = (data: ProductsModel) => {
-    addProduct(data, {
-      onSuccess: () => {
-        reset();
-      },
-    });
+
+    if(edit){
+
+        
+
+    }else{
+        addProduct(data, {
+            onSuccess: () => {
+              reset();
+            },
+          });
+
+    }
+
+    
 
     console.log("data=>", data);
   };
@@ -75,7 +85,7 @@ export default function Form({ edit ,name,description,available,price,qyt
         <p className="pt-2 text-red-500">{errors.name.message}</p>
       )}
 
-      <label className="mt-5 pb-1" htmlFor="DesInput">
+      <label className="mt-5 pb-1 text-white" htmlFor="DesInput">
         Description :{" "}
       </label>
       <textarea
@@ -87,7 +97,7 @@ export default function Form({ edit ,name,description,available,price,qyt
         <p className="pt-2 text-red-500">{errors.description.message}</p>
       )}
 
-      <label className="mt-5 pb-1" htmlFor="quantity">
+      <label className="mt-5 pb-1 text-white" htmlFor="quantity">
         qty :{" "}
       </label>
       <input
@@ -99,7 +109,7 @@ export default function Form({ edit ,name,description,available,price,qyt
       />
       {errors.qyt && <p className="pt-2 text-red-500">{errors.qyt.message}</p>}
 
-      <label className="mt-5 pb-1" htmlFor="priceInput">
+      <label className="mt-5 pb-1 text-white" htmlFor="priceInput">
         Price :{" "}
       </label>
       <input
