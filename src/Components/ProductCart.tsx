@@ -1,12 +1,11 @@
 import { Link } from "react-router";
 import { ProductCartProps } from "../Models/ProductModels";
-import useAddProducts from "../Hooks/useAddProducts";
 
 export default function ProductCart(props: ProductCartProps) {
   const { name, description, qyt, price, available, id, children, addItem } =
     props;
 
-  console.log(children);
+
 
 
 

@@ -169,14 +169,5 @@
       "id": 23
     }
   ],
-  "cart": [
-    {
-      "id": 11,
-      "name": "Lip Balm",
-      "description": "Moisturizes and protects lips",
-      "qyt": 30,
-      "price": 12000,
-      "available": true
-    }
-  ]
+  "cart": []
 }
