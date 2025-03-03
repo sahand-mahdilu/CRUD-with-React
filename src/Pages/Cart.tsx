@@ -36,11 +36,19 @@ export default function Cart() {
           setTotalPrice(totalPrice);
         };
 
-        
+        const calculateTotalCount = () => {
+            
+          let totalCount= data?.length
+
+          setCount(totalCount)
+
+        }
+
+
 
         
         
-        
+        calculateTotalCount()
         CalculateTotalPrice();
       }
     },[data] )
@@ -54,7 +62,7 @@ export default function Cart() {
 
         <div className="flex flex-col items-center mt-7">
           <p className="text-white">TotalPrice : {totalPrice} </p>
-          <p className="text-white">TotalCount : </p>
+          <p className="text-white">TotalCount : {count}</p>
         </div>
       <div className="grid grid-cols-3 gap-5 p-16 bg-black">
         {data?.map((d) => {
