@@ -97,14 +97,6 @@
       "available": true
     },
     {
-      "id": 14,
-      "name": "Aloe Vera Gel",
-      "description": "Soothes and heals skin",
-      "qyt": 28,
-      "price": 30000,
-      "available": false
-    },
-    {
       "id": 15,
       "name": "Face Mask",
       "description": "Deep cleansing and detoxifying",
@@ -147,12 +139,12 @@
   ],
   "cart": [
     {
+      "id": 1,
       "name": "Shampoo",
       "description": "Moisturizing and nourishing for all hair types",
       "qyt": 25,
       "price": 35000,
-      "available": true,
-      "id": 1
+      "available": true
     }
   ]
 }

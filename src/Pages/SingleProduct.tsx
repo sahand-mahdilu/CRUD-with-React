@@ -26,6 +26,7 @@ export default function SingleProduct() {
     mutate(args);
     setTimeout(function(){
       setShowModal(false)
+      navigat(-1)
 
     },4000)
   };
