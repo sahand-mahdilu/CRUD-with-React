@@ -66,9 +66,9 @@ async function deleteProduct(id: string, endpoint: string) {
   }
 }
 
-async function EditProduct(id: string) {
+async function EditItem(product:ProductsModel, id: string) {
   try {
-    let res = await httpRequest.put(`${endPoints.product}/${id}`);
+    let res = await httpRequest.put(`${endPoints.product}/${id}`,product);
     let data = res.data;
     return data;
   } catch (err) {
@@ -82,5 +82,5 @@ export {
   Addproducts,
   getCartProducts,
   deleteProduct,
-  EditProduct,
+  EditItem,
 };
