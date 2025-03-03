@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { ProductsModel } from "../Models/ProductModels";
+import useAddProducts from "../Hooks/useAddProducts";
 
 export default function ProductCart(props :ProductsModel) {
 
@@ -8,13 +9,14 @@ const {name, description , qyt, price ,available,id}=props
 
   console.log(props);
 
+  const {mutate} = useAddProducts()
+
+
+
+const AddProduct=()=>{
+
+  mutate(props)
   
-
-
-
-const clickHandler=()=>{
-
-  console.log("hellp");
 }
   
   return (
@@ -30,7 +32,7 @@ const clickHandler=()=>{
 
         </div>
         <span>count : {qyt}</span>
-        <button onClick={clickHandler} disabled={!available} className={available?"p-1 px-2 rounded-lg bg-green-400":"p-1 px-2 rounded-lg bg-red-400" }>Add to cart</button>
+        <button onClick={AddProduct} disabled={!available} className={available?"p-1 px-2 rounded-lg bg-green-400":"p-1 px-2 rounded-lg bg-red-400" }>Add to cart</button>
         
         
          <Link className="bg-blue-500 p-2 rounded-md hover:bg-blue-300 cursor-pointer" to={`/singleproduct/${id}`}>  <span  >    <svg
