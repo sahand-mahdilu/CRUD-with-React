@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useGetProduct from "../Hooks/useGetProduct";
 import useDeleteProducts from "../Hooks/useDeleteProducts";
 import { DeleteProductArgs } from "../Models/ProductModels";
@@ -17,6 +17,9 @@ export default function SingleProduct() {
     const args: DeleteProductArgs = { id: productId, endpoint: endPoint };
     mutate(args);
   };
+
+  const navigat = useNavigate()
+  
 
   return (
     <div className="border-2 w-[80%] rounded-lg mx-auto mt-10 flex flex-col items-center gap-4">
