@@ -9,7 +9,7 @@ export default function Form() {
     defaultValues:{
         name: "",
         description: "",
-        qyt: 0,
+        qyt:0 ,
         price: 0,
         available: false,
     },
@@ -29,15 +29,19 @@ export default function Form() {
     <form onSubmit={handleSubmit(formSubmiting)} className="flex flex-col bg-slate-800 p-10 rounded-2xl " action="">
         <label className="text-white pb-1" htmlFor="nameInput">Name : </label>
         <input {...register("name")} className="text-black p-2 rounded-md" id="nameInput" placeholder="Enter name " type="text" />
+        {errors.name && <p className="pt-2 text-red-500">{errors.name.message}</p>}
 
          <label className="mt-5 pb-1" htmlFor="DesInput">Description : </label>
-         <textarea {...register("description")} className="text-black rounded-md p-2" id="DesInput"  />   
+         <textarea {...register("description")} className="text-black rounded-md p-2" id="DesInput"  />
+         {errors.description && <p className="pt-2 text-red-500">{errors.description.message}</p>}   
 
          <label className="mt-5 pb-1" htmlFor="quantity">qty : </label>
          <input {...register("qyt")} id="quntity" className="p-2 text-black  rounded-md " placeholder="Enter quantity" type="number" />
+         {errors.qyt && <p className="pt-2 text-red-500">{errors.qyt.message}</p>}
 
          <label className="mt-5 pb-1" htmlFor="priceInput">Price : </label>
          <input {...register("price")} id="priceInput" className="p-2 rounded-md text-black " placeholder="Enter Price" type="number" />
+         {errors.price && <p className="pt-2 text-red-500">{errors.price.message}</p> }
         
 
          <div className="mt-5 " >
