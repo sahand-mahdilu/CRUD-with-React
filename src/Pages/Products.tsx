@@ -4,10 +4,15 @@ import useGetProducts from "../Hooks/useGetProducts";
 import SearchInput from "../Components/SearchInput";
 import { useLocation } from "react-router";
 import useGetCartProducts from "../Hooks/useGetCartProducts";
+import AddModal from "../Components/AddModal";
+import { useState } from "react";
 
 
 
 export default function Products() {
+
+  const [showModal,setShowModal]=useState(false)
+  
 
   const location = useLocation();
 
@@ -26,6 +31,9 @@ export default function Products() {
 
 
   return (
+    <>
+    {showModal && <AddModal/>}
+    
     <div className="text-white">
       <p className=" animate-pulse text-3xl font-bold text-center mt-6">Products</p>
 
@@ -39,5 +47,7 @@ export default function Products() {
         })}
       </div>
     </div>
+    
+    </>
   );
 }
