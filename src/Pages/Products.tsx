@@ -4,7 +4,7 @@ import useGetProducts from "../Hooks/useGetProducts";
 import SearchInput from "../Components/SearchInput";
 import { useLocation } from "react-router";
 import useGetCartProducts from "../Hooks/useGetCartProducts";
-import AddModal from "../Components/AddModal";
+import AddModal from "../Components/DeleteModal";
 import { useState } from "react";
 import useAddProducts from "../Hooks/useAddProducts";
 

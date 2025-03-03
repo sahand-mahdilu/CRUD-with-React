@@ -129,14 +129,6 @@
       "available": true
     },
     {
-      "id": 18,
-      "name": "Bath Bombs",
-      "description": "Fragrant and fizzy bath experience",
-      "qyt": 40,
-      "price": 25000,
-      "available": false
-    },
-    {
       "id": 19,
       "name": "Nail Polish",
       "description": "Long-lasting and vibrant colors",

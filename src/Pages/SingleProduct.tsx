@@ -3,8 +3,13 @@ import useGetProduct from "../Hooks/useGetProduct";
 import useDeleteProducts from "../Hooks/useDeleteProducts";
 import { DeleteProductArgs } from "../Models/ProductModels";
 import { endPoints } from "../Constant/URLs";
+import DeleteModal from "../Components/DeleteModal";
+import { useState } from "react";
 
 export default function SingleProduct() {
+
+  const [showModal,setShowModal]=useState(false)
+
   const { id } = useParams();
 
   const { data } = useGetProduct(id as string);
@@ -14,14 +19,26 @@ export default function SingleProduct() {
   const { mutate } = useDeleteProducts();
 
   const deleteProductHandler = (productId: string, endPoint: string) => {
+
+    setShowModal(true)
+
     const args: DeleteProductArgs = { id: productId, endpoint: endPoint };
     mutate(args);
+    setTimeout(function(){
+      setShowModal(false)
+
+    },4000)
   };
 
   const navigat = useNavigate()
   
 
   return (
+
+
+    <>
+    {showModal && <DeleteModal/>}
+
     <div className="border-2 w-[80%] rounded-lg mx-auto mt-10 flex flex-col items-center gap-4">
       <h1 className="mt-4 text-3xl text-white">{data?.name}</h1>
       <p className="text-white">{data?.description}</p>
@@ -69,5 +86,6 @@ export default function SingleProduct() {
         Go back
       </button>
     </div>
+    </>
   );
 }
