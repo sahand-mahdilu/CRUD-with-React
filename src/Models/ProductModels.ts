@@ -21,6 +21,10 @@ export interface ProductCartProps extends ProductsModel {
         endpoint: string;
       }
 
+      export interface FormProps {
+        edit?: boolean;
+      }
+
 
 
     

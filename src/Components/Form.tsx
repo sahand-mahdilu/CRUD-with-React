@@ -1,13 +1,12 @@
 import { useForm } from "react-hook-form";
-import { ProductsModel } from "../Models/ProductModels";
+import { FormProps, ProductsModel } from "../Models/ProductModels";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ValidationSchemaYup } from "../Schema/ValidationSchema";
 import useAddProducts from "../Hooks/useAddProducts";
 import { endPoints } from "../Constant/URLs";
 
-export default function Form() {
-    const {mutate:addProduct}=useAddProducts(endPoints.product)
-
+export default function Form({ edit }:FormProps) {
+  const { mutate: addProduct } = useAddProducts(endPoints.product);
 
   const {
     register,
@@ -26,16 +25,11 @@ export default function Form() {
   });
 
   const formSubmiting = (data: ProductsModel) => {
-
-
-    addProduct(data,{
-        onSuccess:()=>{
-            reset()  
-        } 
-    })
-
-    
-
+    addProduct(data, {
+      onSuccess: () => {
+        reset();
+      },
+    });
 
     console.log("data=>", data);
   };
@@ -110,9 +104,20 @@ export default function Form() {
         />
       </div>
 
-      <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
-        Add Porduct
+      {edit ? <div className="flex flex-col">
+        <button className="bg-yellow-600 mt-3 p-2 rounded-md hover:bg-yellow-400 text-white">
+        Edit Porduct
       </button>
+      <button className="bg-sky-500 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
+        Go Back
+      </button>
+      </div>
+        
+      : <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
+        Add Porduct
+      </button> }
+
+      
     </form>
   );
 }
