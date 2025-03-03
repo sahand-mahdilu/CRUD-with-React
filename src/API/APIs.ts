@@ -33,5 +33,18 @@ async function getProduct(id:string): Promise<ProductsModel>{
     }
 }
 
+async function Addproducts(product:ProductsModel){
 
-export{getProducts,getProduct}
+    try{
+        let res : AxiosResponse<ProductsModel> = await httpRequest.post(`${endPoints.cart}`,product)
+        let data : ProductsModel = res.data
+        return data
+    }catch(err){
+        console.log(err);
+    }
+
+
+}  
+
+
+export{getProducts,getProduct,Addproducts}

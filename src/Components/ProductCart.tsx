@@ -6,7 +6,7 @@ export default function ProductCart(props :ProductsModel) {
 const {name, description , qyt, price ,available,id}=props
 
 
-
+  console.log(props);
 
 
 
