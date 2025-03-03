@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import { ProductsModel } from "../Models/ProductModels";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ValidationSchemaYup } from "../Schema/ValidationSchema";
 
 export default function Form() {
   const { register, handleSubmit,formState:{errors} } = useForm({
@@ -10,10 +12,13 @@ export default function Form() {
         qyt: 0,
         price: 0,
         available: false,
-    }
+    },
+    resolver: yupResolver(ValidationSchemaYup)
 
     
   });
+
+  
 
   const formSubmiting= (data:ProductsModel)=>{
 
