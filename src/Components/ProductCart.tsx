@@ -3,13 +3,12 @@ import { ProductCartProps } from "../Models/ProductModels";
 import useAddProducts from "../Hooks/useAddProducts";
 
 export default function ProductCart(props: ProductCartProps) {
-  const { name, description, qyt, price, available, id, children } = props;
+  const { name, description, qyt, price, available, id, children, addItem } =
+    props;
 
-  const { mutate } = useAddProducts();
+  console.log(children);
 
-  const AddProduct = () => {
-    mutate(props);
-  };
+
 
   return (
     <div
@@ -32,7 +31,9 @@ export default function ProductCart(props: ProductCartProps) {
       </div>
       <span className="text-white">count : {qyt}</span>
       <button
-        onClick={AddProduct}
+        onClick={() =>
+          addItem({ name, description, qyt, price, available, id })
+        }
         disabled={!available}
         className={
           available

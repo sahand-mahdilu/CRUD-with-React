@@ -20,3 +20,9 @@ export interface ProductCartProps extends ProductsModel {
         id: string;
         endpoint: string;
       }
+
+
+
+      export interface ProductCartProps extends ProductsModel {
+        addItem: (product: ProductsModel) => void;
+      }

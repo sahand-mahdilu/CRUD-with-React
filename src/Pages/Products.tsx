@@ -6,6 +6,7 @@ import { useLocation } from "react-router";
 import useGetCartProducts from "../Hooks/useGetCartProducts";
 import AddModal from "../Components/AddModal";
 import { useState } from "react";
+import useAddProducts from "../Hooks/useAddProducts";
 
 
 
@@ -30,6 +31,22 @@ export default function Products() {
   console.log(cartData);
 
 
+
+
+  
+  const { mutate } = useAddProducts();
+
+  const AddProduct = (product: ProductsModel) => {
+    mutate(product);
+  };
+
+
+
+
+
+
+
+
   return (
     <>
     {showModal && <AddModal/>}
@@ -42,7 +59,7 @@ export default function Products() {
       <div className="grid grid-cols-3 gap-5 p-16 bg-black">
         {data?.map((product: ProductsModel) => {
           return (
-            <ProductCart key={product.id} {...product} />
+            <ProductCart key={product.id} {...product} addItem={AddProduct} />
           )
         })}
       </div>
