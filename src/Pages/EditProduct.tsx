@@ -3,13 +3,15 @@ import Form from "../Components/Form";
 import useGetProduct from "../Hooks/useGetProduct";
 import { useParams } from "react-router";
 
+
 export default function EditProduct() {
     const [editMode,setEditmode]=useState(false)
-
     const{id}=useParams()
+   
+    const {data}=useGetProduct( String(id))
+    
     console.log(id);
 
-    const {data}=useGetProduct( String(id))
 
     console.log(data);
 

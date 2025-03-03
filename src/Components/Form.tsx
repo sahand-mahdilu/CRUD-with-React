@@ -5,12 +5,21 @@ import { ValidationSchemaYup } from "../Schema/ValidationSchema";
 import useAddProducts from "../Hooks/useAddProducts";
 import { endPoints } from "../Constant/URLs";
 import { useEffect } from "react";
+import useEditProduct from "../Hooks/useEditProduct";
+import { useNavigate } from "react-router";
 
-export default function Form({ edit ,name,description,available,price,qyt
-
-
-}:FormProps) {
+export default function Form({
+  edit,
+  name,
+  description,
+  available,
+  price,
+  qyt,
+  id,
+}: FormProps) {
   const { mutate: addProduct } = useAddProducts(endPoints.product);
+   const{mutate}=useEditProduct(String(id))
+   const navigate=useNavigate()
 
   console.log(name);
 
@@ -21,11 +30,7 @@ export default function Form({ edit ,name,description,available,price,qyt
     setValue,
     formState: { errors },
   } = useForm({
-
-  
     defaultValues: {
-
-        
       name: "",
       description: "",
       qyt: 0,
@@ -37,30 +42,33 @@ export default function Form({ edit ,name,description,available,price,qyt
 
   useEffect(() => {
     if (edit) {
-        setValue("name", name || "");
-        setValue("description", description || "");
-        setValue("qyt", qyt || 0);
-        setValue("price", price || 0);
-        setValue("available", available || false);
+      setValue("name", name || "");
+      setValue("description", description || "");
+      setValue("qyt", qyt || 0);
+      setValue("price", price || 0);
+      setValue("available", available || false);
     }
   }, [edit, name, description, qyt, price, available, setValue]);
 
   const formSubmiting = (data: ProductsModel) => {
+    if (edit) {
 
-    if(edit){
+        mutate(data,{
+            onSuccess:()=>{
+                navigate(-1)
 
+            }
+        })
+       
         
 
-    }else{
-        addProduct(data, {
-            onSuccess: () => {
-              reset();
-            },
-          });
-
+    } else {
+      addProduct(data, {
+        onSuccess: () => {
+          reset();
+        },
+      });
     }
-
-    
 
     console.log("data=>", data);
   };
@@ -135,20 +143,20 @@ export default function Form({ edit ,name,description,available,price,qyt
         />
       </div>
 
-      {edit ? <div className="flex flex-col">
-        <button className="bg-yellow-600 mt-3 p-2 rounded-md hover:bg-yellow-400 text-white">
-        Edit Porduct
-      </button>
-      <button className="bg-teal-500 mt-3 p-2 rounded-md hover:bg-teal-400 text-white">
-        Go Back
-      </button>
-      </div>
-        
-      : <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
-        Add Porduct
-      </button> }
-
-      
+      {edit ? (
+        <div className="flex flex-col">
+          <button className="bg-yellow-600 mt-3 p-2 rounded-md hover:bg-yellow-400 text-white">
+            Edit Porduct
+          </button>
+          <button onClick={()=>{navigate(-1)}} className="bg-teal-500 mt-3 p-2 rounded-md hover:bg-teal-400 text-white">
+            Go Back
+          </button>
+        </div>
+      ) : (
+        <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
+          Add Porduct
+        </button>
+      )}
     </form>
   );
 }
