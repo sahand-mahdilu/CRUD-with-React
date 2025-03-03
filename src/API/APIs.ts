@@ -54,7 +54,19 @@ async function Addproducts(product:ProductsModel){
     }
 
 
-}  
+} 
+
+async function deleteProduct(id:string,endpoint:string){
+
+    try{
+        let res : AxiosResponse<ProductsModel> = await httpRequest.delete(`${endpoint}/${id}`)
+        let data : ProductsModel = res.data
+        return data
+    }catch(err){
+        console.log(err);
+    }
+    
+}
 
 
-export{getProducts,getProduct,Addproducts,getCartProducts}
+export{getProducts,getProduct,Addproducts,getCartProducts,deleteProduct}

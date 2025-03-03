@@ -12,3 +12,11 @@ export interface ProductsModel {
 export interface ProductCartProps extends ProductsModel {
     showExtraButton?: boolean; 
     children?: React.ReactNode;}
+
+
+
+
+    export interface DeleteProductArgs {
+        id: string;
+        endpoint: string;
+      }
