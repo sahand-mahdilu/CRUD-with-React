@@ -23,6 +23,4 @@ export interface ProductCartProps extends ProductsModel {
 
 
 
-      export interface ProductCartProps extends ProductsModel {
-        addItem: (product: ProductsModel) => void;
-      }
+    

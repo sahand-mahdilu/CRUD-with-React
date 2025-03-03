@@ -159,15 +159,16 @@
       "qyt": 5,
       "available": false,
       "id": 22
-    },
-    {
-      "name": "asdasd",
-      "description": "ssd",
-      "price": 200,
-      "qyt": 1,
-      "available": false,
-      "id": 23
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "name": "Shampoo",
+      "description": "Moisturizing and nourishing for all hair types",
+      "qyt": 25,
+      "price": 35000,
+      "available": true,
+      "id": 1
+    }
+  ]
 }

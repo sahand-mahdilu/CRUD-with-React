@@ -1,5 +1,8 @@
 import { useParams } from "react-router";
 import useGetProduct from "../Hooks/useGetProduct";
+import useDeleteProducts from "../Hooks/useDeleteProducts";
+import { DeleteProductArgs } from "../Models/ProductModels";
+import { endPoints } from "../Constant/URLs";
 
 export default function SingleProduct() {
   const { id } = useParams();
@@ -7,6 +10,13 @@ export default function SingleProduct() {
   const { data } = useGetProduct(id as string);
 
   console.log(data);
+
+  const { mutate } = useDeleteProducts();
+
+  const deleteProductHandler = (productId: string, endPoint: string) => {
+    const args: DeleteProductArgs = { id: productId, endpoint: endPoint };
+    mutate(args);
+  };
 
   return (
     <div className="border-2 w-[80%] rounded-lg mx-auto mt-10 flex flex-col items-center gap-4">
@@ -20,11 +30,7 @@ export default function SingleProduct() {
       </p>
 
       <div className="flex items-center gap-4 p-2 mb-4">
-        <button className="transition-all p-2 bg-blue-600 text-white rounded-md hover:bg-blue-300">
-          Add to Cart
-        </button>
         <button className=" bg-yellow-500 p-1 rounded-md hover:bg-yellow-300">
-          {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -40,22 +46,25 @@ export default function SingleProduct() {
             />
           </svg>
         </button>
-        <button className="bg-red-500 p-1 rounded-md hover:bg-red-400">
-        <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="white"
-                >
-                  <path d="M3 6h18v2H3V6zm2 2h14l-1.5 14H6.5L5 8zm4 2v10h2V10H9zm4 0v10h2V10h-2zm-3-5V3h4v2h5v2H4V5h5z" />
-                </svg>
+        <button
+          onClick={() => deleteProductHandler(String(id), endPoints.product)}
+          className="bg-red-500 p-1 rounded-md hover:bg-red-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="white"
+          >
+            <path d="M3 6h18v2H3V6zm2 2h14l-1.5 14H6.5L5 8zm4 2v10h2V10H9zm4 0v10h2V10h-2zm-3-5V3h4v2h5v2H4V5h5z" />
+          </svg>
         </button>
-
       </div>
 
-      <button className="bg-green-700 p-2 px-5 rounded-lg mb-8 hover:bg-green-500 text-white">Go back</button>
-
+      <button className="bg-green-700 p-2 px-5 rounded-lg mb-8 hover:bg-green-500 text-white">
+        Go back
+      </button>
     </div>
   );
 }
