@@ -65,7 +65,7 @@ export default function SingleProduct() {
         </button>
       </div>
 
-      <button className="bg-green-700 p-2 px-5 rounded-lg mb-8 hover:bg-green-500 text-white">
+      <button onClick={()=>navigat(-1)} className="bg-green-700 p-2 px-5 rounded-lg mb-8 hover:bg-green-500 text-white">
         Go back
       </button>
     </div>
