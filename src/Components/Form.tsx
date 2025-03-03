@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
+import { ProductsModel } from "../Models/ProductModels";
 
 export default function Form() {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit,formState:{errors} } = useForm({
 
     defaultValues:{
         name: "",
@@ -10,26 +11,33 @@ export default function Form() {
         price: 0,
         available: false,
     }
+
+    
   });
 
+  const formSubmiting= (data:ProductsModel)=>{
+
+    console.log("data=>", data)
+  }
+
   return (
-    <form className="flex flex-col bg-slate-800 p-10 rounded-2xl " action="">
+    <form onSubmit={handleSubmit(formSubmiting)} className="flex flex-col bg-slate-800 p-10 rounded-2xl " action="">
         <label className="text-white pb-1" htmlFor="nameInput">Name : </label>
-        <input className="p-2 rounded-md" id="nameInput" placeholder="Enter name " type="text" />
+        <input {...register("name")} className="text-black p-2 rounded-md" id="nameInput" placeholder="Enter name " type="text" />
 
          <label className="mt-5 pb-1" htmlFor="DesInput">Description : </label>
-         <textarea className="rounded-md" id="DesInput"  />   
+         <textarea {...register("description")} className="text-black rounded-md p-2" id="DesInput"  />   
 
          <label className="mt-5 pb-1" htmlFor="quantity">qty : </label>
-         <input id="quntity" className="p-2 rounded-md " placeholder="Enter quantity" type="number" />
+         <input {...register("qyt")} id="quntity" className="p-2 text-black  rounded-md " placeholder="Enter quantity" type="number" />
 
          <label className="mt-5 pb-1" htmlFor="priceInput">Price : </label>
-         <input id="priceInput" className="p-2 rounded-md " placeholder="Enter Price" type="number" />
+         <input {...register("price")} id="priceInput" className="p-2 rounded-md text-black " placeholder="Enter Price" type="number" />
         
 
          <div className="mt-5 " >
          <label className="mt-5 pb-1" htmlFor="avail">Availabe : </label>
-         <input  id="avail" className="size-4 rounded-md " type="checkbox" />
+         <input {...register("available")}  id="avail" className="size-4 rounded-md " type="checkbox" />
          </div>
 
 
