@@ -99,7 +99,7 @@ export default function Form() {
       )}
 
       <div className="mt-5 ">
-        <label className="mt-5 pb-1" htmlFor="avail">
+        <label className="mt-5 pb-1 text-white" htmlFor="avail">
           Availabe :{" "}
         </label>
         <input
@@ -110,7 +110,7 @@ export default function Form() {
         />
       </div>
 
-      <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400">
+      <button className="bg-blue-600 mt-3 p-2 rounded-md hover:bg-blue-400 text-white">
         Add Porduct
       </button>
     </form>
