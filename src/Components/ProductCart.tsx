@@ -8,7 +8,7 @@ const {name, description , qyt, price ,available,id}=props
 
   console.log(props);
 
-
+  
 
 
 
