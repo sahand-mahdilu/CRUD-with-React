@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ProductCartProps,  } from "../Models/ProductModels";
 import useAddProducts from "../Hooks/useAddProducts";
+import { endPoints } from "../Constant/URLs";
 
 export default function ProductCart(props :ProductCartProps) {
 
@@ -11,7 +12,7 @@ console.log(children);
 
   
 
-  const {mutate} = useAddProducts()
+  const {mutate} = useAddProducts(endPoints.cart)
 
 
 

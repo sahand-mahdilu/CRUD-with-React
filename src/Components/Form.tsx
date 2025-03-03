@@ -11,6 +11,7 @@ export default function Form() {
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -27,7 +28,13 @@ export default function Form() {
   const formSubmiting = (data: ProductsModel) => {
 
 
-    addProduct(data)
+    addProduct(data,{
+        onSuccess:()=>{
+            reset()  
+        } 
+    })
+
+    
 
 
     console.log("data=>", data);
